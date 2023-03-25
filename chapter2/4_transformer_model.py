@@ -18,5 +18,6 @@ model = BertModel(config)
 
 print(config)
 
+# this line will generate a huge file .bin with weights
 model.save_pretrained("model_config")
 
