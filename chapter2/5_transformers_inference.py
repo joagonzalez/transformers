@@ -31,3 +31,4 @@ print(f'Tokens using sub-word tokenizer approach: {tokens}')
 # 101 and 102 are START/END special SYMBOLS: [  101,  7993,   170, 13809, 23763,  2443,  1110,  3014,   102]
 print(f'From tokens to IDs: {ids}')
 print(f'Decoded from IDS: {decode}')
+print(f'Decoded from IDS produced by pipeline: {tokenizer.decode(model_squences["input_ids"][3])}')
