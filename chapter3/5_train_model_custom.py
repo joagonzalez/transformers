@@ -1,8 +1,10 @@
+import evaluate
+import numpy as np
+from transformers import Trainer
 from datasets import load_dataset
 from transformers import TrainingArguments
 from transformers import AutoModelForSequenceClassification
 from transformers import AutoTokenizer, DataCollatorWithPadding
-from transformers import Trainer
 
 # load dataset
 raw_datasets = load_dataset("glue", "mrpc")
@@ -35,6 +37,7 @@ trainer = Trainer(
     tokenizer=tokenizer,
 )
 
+# after execution next line, trainer object will have a new model optimized with our own dataset
 trainer.train()
 
 # execute predictions using trained model on validation dataset in order to compute performance metrics
@@ -42,9 +45,6 @@ predictions = trainer.predict(tokenized_datasets["validation"])
 print(predictions.predictions.shape, predictions.label_ids.shape)
 
 # compute performance metrics
-import evaluate
-import numpy as np
-
 metric = evaluate.load("glue", "mrpc")
 
 preds = np.argmax(predictions.predictions, axis=-1)
