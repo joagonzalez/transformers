@@ -8,8 +8,6 @@ from transformers import (
         Trainer
     )
 
-
-
 def preprocess_function(examples):
     return tokenizer(examples['sentence'], truncation=True)
   
