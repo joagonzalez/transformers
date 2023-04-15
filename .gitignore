@@ -4,3 +4,6 @@
 *test-trainer*
 *joagonzalez*
 *.ipynb_checkpoints*
+*.zip
+*.tsv
+*.gz
