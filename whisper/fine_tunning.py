@@ -1,4 +1,4 @@
-import librosa
+import os
 import librosa.display
 from pprint import pprint
 from datasets import load_dataset, DatasetDict, Audio
@@ -66,4 +66,6 @@ def prepare_dataset(batch):
     return batch
 
 
-common_voice = common_voice.map(prepare_dataset, remove_columns=common_voice.column_names["train"], num_proc=8)
+print(f"Number of processes: {os.cpu_count()}")
+
+common_voice = common_voice.map(prepare_dataset, remove_columns=common_voice.column_names["train"], num_proc=os.cpu_count())
