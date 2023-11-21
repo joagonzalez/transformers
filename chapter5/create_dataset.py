@@ -8,7 +8,7 @@ from tqdm.notebook import tqdm
 from datasets import load_dataset
 
 
-GITHUB_TOKEN = ""
+GITHUB_TOKEN = "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"
 
 headers = {"Authorization": f"token {GITHUB_TOKEN}"}
 
